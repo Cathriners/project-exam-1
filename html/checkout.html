@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | SHOPLUX</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1 class="logo"><a href="/index.html">SHOPLUX</a></h1>
+
+  <button class="hamburger-btn" aria-label="Toggle menu" id="hamburger-btn">☰</button>
+  
+  <div class="header-center">
+    <input type="search" placeholder="Search..." class="search-input">
+  </div>
+  
+<nav class="nav-right nav-menu" id="main-nav">
+  <a href="#">ABOUT</a>
+  <a href="/html/contact.html">CONTACT</a>
+  <a href="/html/login.html" id="login-link">LOG IN</a>
+  <a href="/html/cart.html" class="cart-icon">🛒</a> 
+</nav>
+</header>
+
+    <main class="checkout-main">
+        <h1 class="checkout-title">CHECKOUT PAGE</h1>
+
+        <div class="checkout-grid">
+            
+            <section class="checkout-form-section">
+                
+                <div class="checkout-card" id="contact-info-card">
+                    <h2>Contact Information</h2>
+                    <form id="contact-form">
+                        <input type="text" placeholder="Full name..." required>
+                        <input type="text" placeholder="Address..." required>
+                        <input type="email" placeholder="Email address..." required>
+                        <div class="input-group">
+                            <input type="text" placeholder="Zip-code..." required>
+                            <input type="text" placeholder="City..." required>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="checkout-card" id="payment-card">
+                    <h2>Payment method</h2>
+                    <form id="payment-form">
+                        <input type="text" placeholder="Card number..." required>
+                        <div class="input-group">
+                            <input type="text" placeholder="Expiration (MM/YY)..." required>
+                            <input type="text" placeholder="Card Security Code (CSC)..." required>
+                        </div>
+                        <button type="submit" class="place-order-btn">Place Order</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="checkout-summary-section">
+                <div class="checkout-card order-summary" id="order-summary-card">
+                    <h2>Your Order</h2>
+                    
+                    <div id="product-summary-container">
+                        <div class="loading-message">Laster ordredetaljer...</div>
+                    </div>
+
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span id="summary-subtotal">$99.99</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Shipping</span>
+                        <span id="summary-shipping">$9.99</span>
+                    </div>
+                    <div class="summary-line total-line">
+                        <span>Total</span>
+                        <span id="summary-total">$109.98</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+        <h4>About us</h4>
+        <a href="#">Contact</a>
+        <a href="#">Q&A</a>
+    </div>
+    <div class="footer-col">
+        <h4>Terms and conditions</h4>
+        <a href="#">Privacy policy</a>
+    </div>
+    <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#">Shop women</a>
+        <a href="#">Shop men</a>
+        <a href="#">Shop kids</a>
+    </div>
+    </div>
+</footer>
+
+    <script src="../js/checkout.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+      // LOGIKK FOR HAMBURGER-MENYEN
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mainNav = document.getElementById('main-nav'); // Bruk main-nav ID her
+
+      if (hamburgerBtn && mainNav) {
+        hamburgerBtn.addEventListener('click', () => {
+          mainNav.classList.toggle('open');
+        });
+      }
+    </script>
+</body>
+</html>

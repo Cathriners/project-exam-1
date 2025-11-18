@@ -1,0 +1,1183 @@
+/* --- GLOBALT --- */
+/* --- GLOBALT --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d1b4d1; /* Lys lilla bakgrunn */
+  color: #111;
+  /* START av Sticky Footer-implementering */
+  display: flex; /* Aktiver Flexbox */
+  flex-direction: column; /* Stable elementene (header, main, footer) vertikalt */
+  min-height: 100vh; /* Sørg for at body fyller hele viewport-høyden */
+  /* SLUTT av Sticky Footer-implementering */
+}
+
+/* Legg til denne nye stilen (eller integrer den) */
+main {
+  /* Lar main vokse og fylle plassen */
+  flex-grow: 1; 
+}
+
+/* --- Navigasjon i header --- */
+header {
+  background-color: #e3cae3;
+  font-family: 'Autour One', sans-serif;
+  display: flex;
+  /* Endre til å fordele plassen og sentrere elementene */
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Sørg for at den er bred nok */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Stil for søkefeltet (header-center) */
+.header-center {
+  flex-grow: 1; /* Lar den ta opp ledig plass i midten */
+  display: flex;
+  justify-content: center;
+  max-width: 400px; /* Maks bredde for søkefeltet */
+  margin: 0 20px; /* Litt avstand fra logo og nav-right */
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px; /* Gjør det avrundet */
+  font-size: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Stil for nav-right (ABOUT, CONTACT, Cart) */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Avstand mellom lenkene */
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  transition: color 0.2s;
+  /* Fjern den gamle .nav a stilen for margin-left */
+  margin-left: 0; 
+}
+
+.nav-right a:hover {
+  color: #5c3e5c;
+  text-decoration: underline;
+}
+
+/* Styling for logo-lenken */
+.logo a {
+  /* Fjerner standard understrek for lenker */
+  text-decoration: none; 
+  /* Setter fargen til svart */
+  color: #111; 
+  /* Angi fontstørrelsen og vekt om nødvendig,
+     hvis du vil at logoen skal se annerledes ut enn standard <h1> */
+  font-size: 2rem; 
+  font-weight: bold;
+  
+  /* Arver fonten fra .logo/header om den er satt */
+  font-family: inherit;
+}
+
+.logo a:hover {
+  /* Fjerner understreken på hover også, eller sett den til en annen farge */
+  color: #000;
+  text-decoration: none;
+}
+
+/* Stil for handlevogn-ikonet */
+.cart-icon {
+  font-size: 1.5rem; /* Gjør ikonet litt større */
+}
+
+/* Responsiv justering (ved behov, for å skjule søkefeltet på mobil) */
+@media (max-width: 768px) {
+  .header-center {
+    display: none; /* Skjul søkefeltet på små skjermer for enkelhet */
+  }
+  
+  header {
+    padding: 15px 20px;
+  }
+}
+
+/* --- CAROUSEL --- */
+.carousel-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #f6f0f8 0%, #e9dfe9 100%);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-image {
+  width: 40%;
+  max-width: 420px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.10);
+}
+
+.slide-content {
+  width: 45%;
+  max-width: 600px;
+}
+
+.slide-content h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+
+.slide-content p {
+  margin-bottom: 1rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+.slide-content .btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background-color: #6f4c78;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.slide-content .btn:hover {
+  background-color: #5a3d64;
+}
+
+/* --- CAROUSEL-KONTROLLER --- */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control.prev { left: 12px; }
+.carousel-control.next { right: 12px; }
+
+/* --- CAROUSEL DOTS --- */
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dot.active {
+  background: #6f4c78;
+}
+
+/* --- PRODUKTGRID --- */
+.grid-section {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.grid-section h2 {
+  margin: 0 0 1rem;
+  padding-left: 4px;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.card h4 {
+  font-size: 1rem;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.card .price {
+  margin-top: auto;
+  font-weight: 700;
+  color: #6f4c78;
+}
+
+/* --- FOOTER (Oppdatert stil) --- */
+footer {
+  background-color: #e3cae3; 
+  padding: 40px 20px; /* Økt padding for bedre utseende */
+  color: #111;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+/* Bruker CSS Grid for å lage kolonner */
+.footer-grid {
+  display: grid;
+  /* 3 kolonner er et godt utgangspunkt basert på din HTML */
+  grid-template-columns: repeat(3, 1fr); 
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  text-align: left;
+}
+
+.footer-col h4 {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.footer-col a {
+  display: block; /* Sørger for at lenkene stables vertikalt */
+  color: #111;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: #5c3e5c;
+  text-decoration: underline;
+}
+
+/* Responsiv justering for Footer */
+@media (max-width: 768px) {
+  .footer-grid {
+    /* To kolonner på nettbrett */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    /* Én kolonne på mobil */
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-col {
+    margin-bottom: 20px;
+  }
+}
+
+/* === PRODUKTDETALJER SIDE === */
+.product-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  padding: 40px;
+  gap: 40px;
+  transition: transform 0.3s ease;
+}
+
+.product-container:hover {
+  transform: translateY(-3px);
+}
+
+.product-container img {
+  width: 350px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 250px;
+}
+
+.product-info h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.product-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.product-info .price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2b8a3e; /* grønn aktig farge for pris */
+  margin-bottom: 20px;
+}
+
+/* === "ADD TO CART" KNAPP === */
+.add-to-cart-btn {
+  background-color: #222; /* sort knapp */
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVT DESIGN === */
+@media (max-width: 768px) {
+  .product-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .product-container img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .add-to-cart-btn {
+    align-self: center;
+  }
+}
+
+/* === PRODUKTLISTE SIDE === */
+.products-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem 3rem;
+}
+
+.products-page h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.product-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.product-controls input,
+.product-controls select {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.product-controls input:focus,
+.product-controls select:focus {
+  outline: 2px solid #6f4c78;
+}
+
+ /* === LOGIN & REGISTER PAGES === */
+/* Fjerner den hardkodede bakgrunnsfargen fra body, da den er satt globalt */
+
+/* Sentrerer logg inn/registreringsboksen i midten av siden */
+.login-page main {
+  display: flex;
+  justify-content: center; /* Horisontal sentrering */
+  align-items: center; /* Vertikal sentrering */
+  flex-grow: 1; 
+}
+
+
+/* Stil for den ytre boksen som omslutter skjemaet, basert på Figma-malen */
+.form-container {
+  background-color: #d9d9d9; /* Lys grå farge fra malen */
+  border-radius: 12px;
+  /* Sterkere boks-skygge for å matche dybden i malen */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+  padding: 40px 60px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.4); 
+  width: 320px; /* Fast bredde er nødvendig */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.form-container h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.form-container input {
+  padding: 12px;
+  /* Gjør input-feltene avrundet som i malen */
+  border-radius: 8px; 
+  border: none;
+  /* Lett skygge på input-felt for dybde */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  font-size: 1rem;
+}
+
+/* Knappestil */
+.form-container button.btn {
+  /* Bruk lillafargen for knappen */
+  background-color: #b39ab3; 
+  color: #111;
+  border: none;
+  border-radius: 8px; /* Litt mindre avrundet enn input */
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 5px;
+}
+
+.form-container button.btn:hover {
+  background-color: #a284a2;
+}
+
+.form-container p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-container p a {
+  color: #6f4c78; /* Bruk en lilla farge for lenken */
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.form-container p a:hover {
+  color: #5c3e5c;
+}
+/* Legg til samme stil for Register-siden hvis du har en egen register.html */
+/* Du kan duplisere .login-page main og .form-container for .register-page */
+/* === LOGIN & REGISTER PAGES === */
+.register-page body {
+  background-color: #b79eb7;
+}
+
+/* Sentrer login/register-boks */
+.register-page main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.register-page .form-container {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  padding: 40px 60px;
+  width: 320px;
+  text-align: center;
+}
+
+.register-page .form-container h2 {
+  margin-bottom: 1.5rem;
+}
+
+.register-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.register-page input {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.register-page button {
+  background-color: #b39ab3;
+  color: #111;
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-page button:hover {
+  background-color: #a284a2;
+}
+
+.register-page .redirect {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.register-page .redirect a {
+  color: #111;
+  text-decoration: underline;
+}
+
+.contact-page main { 
+  display: flex;
+  justify-content: center; /* Sentrerer horisontalt */
+  align-items: center; /* Sentrerer vertikalt */
+  flex-grow: 1;
+  padding: 50px 20px;
+}
+
+/* === CONTACT FORM SPESIFIKKE STILER === */
+
+/* Stil for textarea (meldinger) for å matche input-feltene */
+.form-container textarea.contact-message {
+  padding: 12px;
+  border-radius: 8px; 
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
+  font-size: 1rem;
+  resize: vertical; /* Lar brukeren kun endre høyden */
+  font-family: Arial, sans-serif; /* Sikrer samme font som resten */
+}
+
+/* Litt luft under overskriften */
+.form-container .form-intro-text {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+/* === CART PAGE STYLES === */
+
+.cart-page-content {
+    max-width: 900px;
+    margin: 3rem auto 5rem;
+    padding: 0 20px;
+}
+
+.cart-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 2rem;
+    text-align: left; /* Juster etter bildet */
+}
+
+/* --- Handlekurvtabell Header --- */
+.cart-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Produkt:QTY:PRICE fordeling */
+    gap: 15px;
+    padding: 0 15px 10px;
+    font-weight: bold;
+    color: #111;
+    border-bottom: 1px solid #ccc; /* Linje under header */
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.product-header, .qty-header, .price-header {
+    /* Sikrer justering med innholdet */
+    display: flex;
+    align-items: center;
+}
+
+.product-header {
+    justify-content: flex-start;
+}
+.qty-header {
+    justify-content: center;
+}
+.price-header {
+    justify-content: flex-end; /* Justert til høyre */
+}
+
+
+/* --- Handlekurv Produktlinje --- */
+.cart-item {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 15px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    position: relative; /* For Empty cart button */
+    min-height: 150px; /* NY LINJE: Sikrer synlig plass for meldinger */
+}
+
+.item-details {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.item-image-placeholder {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+.item-description {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333;
+    max-width: 300px;
+}
+
+/* --- Mengdejustering (QTY) --- */
+.item-quantity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.qty-input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px 0;
+    -moz-appearance: textfield; /* Fjern piler i Firefox */
+    appearance: none;
+    border-radius: 0;
+}
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Fjern piler i Chrome/Safari */
+    margin: 0;
+}
+
+.qty-btn {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.1s;
+}
+.qty-btn:hover {
+    background-color: #e5e5e5;
+}
+
+.minus-btn { border-radius: 3px 0 0 3px; border-right: none; }
+.plus-btn { border-radius: 0 3px 3px 0; border-left: none; }
+
+
+/* --- Pris og Fjern-knapp --- */
+.item-price {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Høyrejustering for pris */
+    gap: 15px;
+    font-weight: bold;
+}
+
+.price-value {
+    color: #6f4c78; /* Bruk lilla for pris */
+    font-size: 1.1rem;
+    min-width: 70px; /* Sikrer at prisen har plass */
+    text-align: right;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+.remove-btn:hover {
+    color: #c93b3b;
+}
+
+/* --- "Empty cart" knappen --- */
+.empty-cart-btn {
+    background-color: #888888; /* Grå farge */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    /* Plasserer knappen i øvre høyre hjørne av .cart-item */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.empty-cart-btn:hover {
+    background-color: #666666;
+}
+
+
+/* --- Handlekurv Totalsummering --- */
+.cart-total-summary {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 350px; /* Som i bildet */
+    margin-left: auto; /* Høyrejustering */
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.total-line {
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding-top: 15px;
+    font-size: 1.15rem;
+}
+
+.checkout-btn {
+    width: 100%;
+    background-color: #6f4c78; /* Lilla farge fra fargepaletten */
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.2s;
+}
+.checkout-btn:hover {
+    background-color: #5c3e5c;
+}
+
+/* Legg til dette i din eksisterende CSS */
+
+.item-image-actual {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.loading-message, .error-message, .empty-cart-message {
+    padding: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #6f4c78;
+    grid-column: 1 / -1; /* Sentrer over hele rutenettet */
+}
+
+/* --- Responsivitet --- */
+@media (max-width: 768px) {
+    .cart-table-header {
+        display: none; /* Skjul headeren på små skjermer for enkelthet */
+    }
+
+    .cart-item {
+        grid-template-columns: 1fr; /* Stable elementene vertikalt */
+        text-align: center;
+        padding-top: 50px; /* Gi plass til "Empty cart" knappen */
+    }
+
+    .item-details {
+        flex-direction: column;
+        text-align: center;
+    }
+    .item-image-placeholder {
+        width: 100px;
+        height: 100px;
+    }
+
+    .item-quantity {
+        margin: 15px auto;
+    }
+
+    .item-price {
+        justify-content: center;
+        gap: 25px;
+        margin-top: 10px;
+    }
+    
+    .remove-btn {
+        position: static;
+        font-size: 1.5rem;
+    }
+
+    .empty-cart-btn {
+        top: 10px;
+        right: 10px;
+    }
+
+    .cart-total-summary {
+        margin: 20px auto; /* Sentrer oppsummeringen */
+    }
+}
+
+/* Legg til denne koden i din eksisterende css/style.css */
+
+.checkout-title {
+    text-align: center;
+    margin: 40px 0 30px;
+    font-size: 2em;
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Venstre side er bredere enn høyre */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+    padding: 0 20px;
+}
+
+.checkout-card {
+    background-color: var(--light-gray, #d3d3d3); /* Bruk den lysegrå fargen fra bildet */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.checkout-card h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--main-bg-color, #f0f0f0);
+    padding-bottom: 10px;
+}
+
+/* Skjema styling */
+.checkout-card form input[type="text"],
+.checkout-card form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box; /* Sørger for at padding ikke øker bredden */
+}
+
+.checkout-card .input-group {
+    display: flex;
+    gap: 15px;
+}
+
+.checkout-card .input-group input {
+    flex-grow: 1; /* Begge input-felt tar like stor plass */
+}
+
+/* Ordresammendrag produktvisning */
+.order-product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.order-product-item .item-details {
+    display: flex;
+    gap: 10px;
+}
+
+.order-product-item .item-details .item-image-thumbnail {
+    width: 60px;
+    height: 60px;
+    background-color: #fff; /* Som i bildet ditt */
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+.order-product-item .item-details .item-info p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Totalsammendrag */
+.order-summary .summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top: 1px solid #ccc;
+}
+
+.order-summary .total-line {
+    font-weight: bold;
+    font-size: 1.1em;
+    border-top: 2px solid #333; /* Tykk linje over total */
+    padding-top: 10px;
+    margin-top: 15px;
+}
+
+.place-order-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-color, #5e3b73); /* Bruk fargen fra "Proceed to checkout" */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+/* Responsivitet for mobil */
+@media (max-width: 768px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+}
+
+/* Legg til denne koden i din eksisterende css/style.css */
+
+.success-main {
+    min-height: 70vh; /* Sikrer at siden fyller skjermen før bunnteksten */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.success-title {
+    text-align: center;
+    margin: 40px 0 30px;
+    font-size: 2em;
+}
+
+.success-card {
+    background-color: var(--light-gray, #d3d3d3); /* Lysegrå bakgrunn */
+    padding: 50px;
+    border-radius: 20px; /* Mer avrundede hjørner */
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.success-card h2 {
+    font-size: 2em;
+    margin-top: 0;
+    color: #333;
+}
+
+/* Sjekkmerket */
+.checkmark {
+    font-size: 5em;
+    color: green; /* Bruk en grønn farge for suksess */
+    margin: 20px 0;
+    display: inline-block;
+    padding: 10px;
+    border: 3px solid green;
+    border-radius: 50%;
+}
+
+.success-card p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.back-to-shop-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: var(--button-color, #5e3b73);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-shop-btn:hover {
+    background-color: #4b2d5a;
+}
+
+/* --- Hamburger Meny Stiler --- */
+
+/* Standard stil: Skjul knappen på store skjermer */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #111;
+  z-index: 200; /* Sikrer at knappen er over andre elementer */
+}
+
+/* Stil for når menyen er åpen */
+.nav-right.open {
+  /* Når menyen er åpen, sett posisjonen slik at den faller ned */
+  display: flex !important; /* Tvinger den til å vises */
+  flex-direction: column;
+  position: absolute;
+  top: 60px; /* Flytt den under headeren */
+  right: 0;
+  width: 200px; /* Sett bredden på dropdown-menyen */
+  background-color: #e3cae3; /* Header-farge */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.nav-right.open a {
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* --- Responsiv CSS (Media Query) --- */
+
+@media (max-width: 768px) {
+  /* Vis hamburger-knappen på små skjermer */
+  .hamburger-btn {
+    display: block;
+  }
+  
+  /* Skjul den vanlige navigasjonen på små skjermer */
+  .nav-right {
+    display: none;
+  }
+  
+  /* Endre flex-justeringen i headeren for å skape plass */
+  header {
+    justify-content: space-between;
+    /* Sikrer at logo, søk og hamburger-knapp kan plasseres */
+  }
+
+  /* Juster søkefeltet - la det ta litt mer plass */
+  .header-center {
+    margin: 0 10px;
+    max-width: 200px;
+    /* Hvis du vil fjerne søkefeltet på mobil, kan du sette: display: none; */
+  }
+}

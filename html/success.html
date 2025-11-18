@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Takk for kjøpet! | SHOPLUX</title>
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1 class="logo"><a href="/index.html">SHOPLUX</a></h1>
+
+  <button class="hamburger-btn" aria-label="Toggle menu" id="hamburger-btn">☰</button>
+  
+  <div class="header-center">
+    <input type="search" placeholder="Search..." class="search-input">
+  </div>
+  
+<nav class="nav-right nav-menu" id="main-nav">
+  <a href="#">ABOUT</a>
+  <a href="/html/contact.html">CONTACT</a>
+  <a href="/html/login.html" id="login-link">LOG IN</a>
+  <a href="/html/cart.html" class="cart-icon">🛒</a> 
+</nav>
+</header>
+
+    <main class="success-main">
+
+        <div class="success-card">
+            <h2>Thank you for your purchase!</h2>
+            <div class="checkmark">&#10003;</div>
+            <p>Your order has been placed and confirmed.</p>
+            <p>You will receive an email confirmation shortly.</p>
+            <a href="../index.html" class="back-to-shop-btn">Continue Shopping</a>
+        </div>
+    </main>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+        <h4>About us</h4>
+        <a href="#">Contact</a>
+        <a href="#">Q&A</a>
+    </div>
+    <div class="footer-col">
+        <h4>Terms and conditions</h4>
+        <a href="#">Privacy policy</a>
+    </div>
+    <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="#">Shop women</a>
+        <a href="#">Shop men</a>
+        <a href="#">Shop kids</a>
+    </div>
+    </div>
+</footer>
+<script src="../js/auth.js"></script>
+<script src="../js/products.js"></script>
+    
+    <script>
+      // LOGIKK FOR HAMBURGER-MENYEN
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mainNav = document.getElementById('main-nav'); // Bruk main-nav ID her
+
+      if (hamburgerBtn && mainNav) {
+        hamburgerBtn.addEventListener('click', () => {
+          mainNav.classList.toggle('open');
+        });
+      }
+    </script>
+  </body>
+</html>
+    </body>
+</html>
