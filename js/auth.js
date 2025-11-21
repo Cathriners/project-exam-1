@@ -13,7 +13,7 @@ function logout() {
     localStorage.removeItem("user");
     alert("Du er logget ut!");
     updateUIBasedOnLoginStatus();
-    window.location.href = "/index.html"; 
+    window.location.href = "index.html";
 }
 
 function updateUIBasedOnLoginStatus() {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (response.ok) {
                     alert("Konto opprettet! Du kan nå logge inn.");
-                    window.location.href = "login.html";
+                    window.location.href = "html/login.html";
                 } else {
                     console.error("API Error:", result);
                     alert(result.errors ? result.errors[0].message : "Noe gikk galt under registrering. Sjekk e-postdomene og passordlengde.");
@@ -149,10 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     localStorage.setItem("token", result.data.accessToken);
                     localStorage.setItem("user", JSON.stringify(result.data));
                     
-                    updateUIBasedOnLoginStatus(); 
-                    
+                    updateUIBasedOnLoginStatus();
+
                     alert("Du er logget inn!");
-                    window.location.href = "/index.html";
+                    window.location.href = "index.html";
                 } else {
                     alert(result.message || "Feil e-post eller passord.");
                 }
