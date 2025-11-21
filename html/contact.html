@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact | SHOPLUX</title>
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
      <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
   </head>
   <body class="contact-page">
 <header>
-  <h1 class="logo"><a href="/index.html">SHOPLUX</a></h1>
+  <h1 class="logo"><a href="index.html">SHOPLUX</a></h1>
 
   <button class="hamburger-btn" aria-label="Toggle menu" id="hamburger-btn">☰</button>
   
@@ -21,10 +21,10 @@
   </div>
   
 <nav class="nav-right nav-menu" id="main-nav">
-  <a href="/html/products.html">PRODUCTS</a>
-  <a href="/html/contact.html">CONTACT</a>
-  <a href="/html/login.html" id="login-link">LOG IN</a>
-  <a href="/html/cart.html" class="cart-icon" id="cart-link">
+  <a href="html/products.html">PRODUCTS</a>
+  <a href="html/contact.html">CONTACT</a>
+  <a href="html/login.html" id="login-link">LOG IN</a>
+  <a href="html/cart.html" class="cart-icon" id="cart-link">
   🛒
   <span class="cart-count-badge" id="cart-count">0</span>
 </a>
@@ -58,13 +58,12 @@
         &copy;  2025 Shoplux. All rights reserved.
     </div>
 </footer>
-    <script src="../js/auth.js"></script>
-    <script src="../js/products.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
     
     <script>
-      // LOGIKK FOR HAMBURGER-MENYEN
       const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mainNav = document.getElementById('main-nav'); // Bruk main-nav ID her
+      const mainNav = document.getElementById('main-nav'); 
 
       if (hamburgerBtn && mainNav) {
         hamburgerBtn.addEventListener('click', () => {
