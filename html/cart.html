@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handlekurv | SHOPLUX</title>
+    <title>Shoppingcart | SHOPLUX</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
-</head>
-<body>
-<header>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
+    </head>
+    <header>
   <h1 class="logo"><a href="/index.html">SHOPLUX</a></h1>
 
   <button class="hamburger-btn" aria-label="Toggle menu" id="hamburger-btn">☰</button>
@@ -20,78 +19,57 @@
   </div>
   
 <nav class="nav-right nav-menu" id="main-nav">
-  <a href="#">ABOUT</a>
+  <a href="products.html">PRODUCTS</a>
   <a href="/html/contact.html">CONTACT</a>
   <a href="/html/login.html" id="login-link">LOG IN</a>
-  <a href="/html/cart.html" class="cart-icon">🛒</a> 
+  <a href="/html/cart.html" class="cart-icon" id="cart-link">
+  🛒
+  <span class="cart-count-badge" id="cart-count">0</span>
+</a>
 </nav>
 </header>
 
+<body>
+ <body>
     <main>
         <div class="cart-page-content">
-            <h1 class="cart-title">CART PAGE</h1>
-
+            <h1 class="cart-title">Your Shopping Cart</h1>
+            
             <div class="cart-table-header">
-                <div class="product-header">PRODUCT</div>
-                <div class="qty-header">QTY</div>
-                <div class="price-header">PRICE</div>
+                <span class="product-header">PRODUCT</span>
+                <span class="qty-header">QUANTITY</span>
+                <span class="price-header">PRICE</span>
             </div>
 
-            <div class="cart-item">
-                <div class="loading-message">Laster handlekurv...</div>
+            <div id="cart-items">
             </div>
-
-            <div class="cart-total-summary">
-                <div class="summary-line">
-                    <span>SUBTOTAL</span>
-                    <span id="subtotal-value">$0.00</span>
-                </div>
-                <div class="summary-line">
-                    <span>SHIPPING</span>
-                    <span id="shipping-value">$9.99</span>
-                </div>
-                <div class="summary-line total-line">
-                    <span>TOTAL</span>
-                    <span id="total-value">$9.99</span>
-                </div>
-               <a href="/html/checkout.html" class="checkout-btn">Proceed to checkout</a>
-            </div>
-        </div>
-    </main>
+            
+           <div class="cart-total-summary">
+     <div class="summary-line">
+         <span>Subtotal</span>
+         <span id="summary-subtotal">$0.00</span>
+     </div>
+     <div class="summary-line">
+         <span>Frakt</span>
+         <span id="summary-shipping">$9.99</span>
+     </div>
+     
+     <div class="summary-line total-line">
+         <span>Total (inkl. frakt)</span>
+         <span id="summary-total">$9.99</span>
+     </div>
+     
+     <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+   
+</div> </div> </main>
 
 <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-        <h4>About us</h4>
-        <a href="#">Contact</a>
-        <a href="#">Q&A</a>
-    </div>
-    <div class="footer-col">
-        <h4>Terms and conditions</h4>
-        <a href="#">Privacy policy</a>
-    </div>
-    <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="#">Shop women</a>
-        <a href="#">Shop men</a>
-        <a href="#">Shop kids</a>
-    </div>
+    <div class="footer-copyright">
+        &copy;  2025 Shoplux. All rights reserved.
     </div>
 </footer>
+    
+    <script src="../js/cart.js"></script> 
 
-    <script src="../js/cart.js"></script>
-    <script src="../js/auth.js"></script>
-    <script>
-      // LOGIKK FOR HAMBURGER-MENYEN
-      const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mainNav = document.getElementById('main-nav'); // Bruk main-nav ID her
-
-      if (hamburgerBtn && mainNav) {
-        hamburgerBtn.addEventListener('click', () => {
-          mainNav.classList.toggle('open');
-        });
-      }
-    </script>
 </body>
 </html>
-

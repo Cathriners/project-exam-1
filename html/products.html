@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alle produkter | Shoplux</title>
+  <title>Products | SHOPLUX</title>
   <link rel="stylesheet" href="../css/style.css" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Autour+One&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -17,23 +20,26 @@
   </div>
   
 <nav class="nav-right nav-menu" id="main-nav">
-  <a href="#">ABOUT</a>
+  <a href="/html/products.html">PRODUCTS</a>
   <a href="/html/contact.html">CONTACT</a>
   <a href="/html/login.html" id="login-link">LOG IN</a>
-  <a href="/html/cart.html" class="cart-icon">🛒</a> 
+  <a href="/html/cart.html" class="cart-icon" id="cart-link">
+  🛒
+  <span class="cart-count-badge" id="cart-count">0</span>
+</a>
 </nav>
 </header>
 
 
 <main class="products-page">
-  <h2>Alle produkter</h2>
+  <h2>All Products</h2>
 
   <div class="product-controls">
-    <input type="text" id="searchInput" placeholder="Søk etter produkt..." />
+    <input type="text" id="searchInput" placeholder="Search for a product..." />
     <select id="sortSelect">
-      <option value="">Sorter etter</option>
-      <option value="low-high">Pris: lav → høy</option>
-      <option value="high-low">Pris: høy → lav</option>
+      <option value="">Sort by</option>
+      <option value="low-high">Price: low → high</option>
+      <option value="high-low">Price: high → low</option>
     </select>
   </div>
 
@@ -41,31 +47,16 @@
 </main>
 
 <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-        <h4>About us</h4>
-        <a href="#">Contact</a>
-        <a href="#">Q&A</a>
-    </div>
-    <div class="footer-col">
-        <h4>Terms and conditions</h4>
-        <a href="#">Privacy policy</a>
-    </div>
-    <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="#">Shop women</a>
-        <a href="#">Shop men</a>
-        <a href="#">Shop kids</a>
-    </div>
+    <div class="footer-copyright">
+        &copy;  2025 Shoplux. All rights reserved.
     </div>
 </footer>
 
 <script src="../js/productsList.js"></script>
 <script src="../js/auth.js"></script>
 <script>
-      // LOGIKK FOR HAMBURGER-MENYEN
       const hamburgerBtn = document.getElementById('hamburger-btn');
-      const mainNav = document.getElementById('main-nav'); // Bruk main-nav ID her
+      const mainNav = document.getElementById('main-nav');
 
       if (hamburgerBtn && mainNav) {
         hamburgerBtn.addEventListener('click', () => {

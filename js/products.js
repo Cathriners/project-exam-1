@@ -1,6 +1,5 @@
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
-// Hent produkter fra API
 async function getProducts() {
   try {
     const response = await fetch(API_URL);
@@ -19,7 +18,6 @@ async function getProducts() {
   }
 }
 
-// === CAROUSEL ===
 function renderCarousel(products) {
   const track = document.getElementById("carousel-track");
   const dotsContainer = document.getElementById("carousel-dots");
@@ -45,7 +43,6 @@ function renderCarousel(products) {
     dotsContainer.appendChild(dot);
   });
 
-  // Enkel looping
   let index = 0;
   const slides = document.querySelectorAll(".carousel-slide");
   const dots = document.querySelectorAll(".carousel-dot");
@@ -62,7 +59,6 @@ function renderCarousel(products) {
   dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
 }
 
-// === GRID ===
 function renderGrid(products) {
   const grid = document.getElementById("products-grid");
   grid.innerHTML = "";

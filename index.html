@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shoplux</title>
+  <title>SHOPLUX</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +20,14 @@
   </div>
   
 <nav class="nav-right" id="main-nav"> 
-  <a href="#">ABOUT</a>
-  <a href="/html/contact.html">CONTACT</a> <a href="/html/login.html" id="login-link">LOG IN</a> <a href="/html/cart.html" class="cart-icon">🛒</a> </nav>
-
+  <a href="/html/products.html">PRODUCTS</a>
+  <a href="/html/contact.html">CONTACT</a> 
+  <a href="/html/login.html" id="login-link">LOG IN</a> 
+  <a href="/html/cart.html" class="cart-icon" id="cart-link">
+  🛒
+  <span class="cart-count-badge" id="cart-count">0</span>
+</a>
+</nav>
 </header>
 
 <main>
@@ -36,41 +41,24 @@
   </section>
 
   <section class="grid-section">
-    <h2>Nyheter</h2>
+    <h2>News</h2>
     <div class="products-grid" id="products-grid"></div>
   </section>
 </main>
 
 <footer>
-  <div class="footer-grid">
-    <div class="footer-col">
-        <h4>About us</h4>
-        <a href="#">Contact</a>
-        <a href="#">Q&A</a>
-    </div>
-    <div class="footer-col">
-        <h4>Terms and conditions</h4>
-        <a href="#">Privacy policy</a>
-    </div>
-    <div class="footer-col">
-        <h4>Shop</h4>
-        <a href="#">Shop women</a>
-        <a href="#">Shop men</a>
-        <a href="#">Shop kids</a>
-    </div>
+    <div class="footer-copyright">
+        &copy;  2025 SHOPLUX. All rights reserved.
     </div>
 </footer>
 
 <script src="js/products.js"></script>
 <script src="js/auth.js"></script> 
 <script>
-  // Finn knappen og navigasjonen
   const hamburgerBtn = document.getElementById('hamburger-btn');
   const mobileNav = document.getElementById('main-nav');
 
-  // Legg til lytter for klikk på knappen
   hamburgerBtn.addEventListener('click', () => {
-    // Veksler mellom å legge til/fjerne 'open'-klassen
     mobileNav.classList.toggle('open');
   });
 </script>

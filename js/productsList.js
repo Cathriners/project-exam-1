@@ -2,7 +2,6 @@ const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 let allProducts = [];
 
-// Hent produkter
 async function fetchProducts() {
   try {
     const response = await fetch(API_URL);
@@ -15,7 +14,6 @@ async function fetchProducts() {
   }
 }
 
-// Vis produkter i grid
 function renderProducts(products) {
   const grid = document.getElementById("productsGrid");
   grid.innerHTML = "";
@@ -40,14 +38,12 @@ function renderProducts(products) {
   });
 }
 
-// Filtrer etter søk
 document.getElementById("searchInput").addEventListener("input", (e) => {
   const term = e.target.value.toLowerCase();
   const filtered = allProducts.filter(p => p.title.toLowerCase().includes(term));
   renderProducts(filtered);
 });
 
-// Sorter etter pris
 document.getElementById("sortSelect").addEventListener("change", (e) => {
   const value = e.target.value;
   let sorted = [...allProducts];
