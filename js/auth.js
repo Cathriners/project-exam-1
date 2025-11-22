@@ -13,7 +13,7 @@ function logout() {
     localStorage.removeItem("user");
     alert("Du er logget ut!");
     updateUIBasedOnLoginStatus();
-    window.location.href = "index.html";
+    window.location.href = "/project-exam-1/index.html";
 }
 
 function updateUIBasedOnLoginStatus() {
@@ -26,7 +26,7 @@ function updateUIBasedOnLoginStatus() {
         const userData = JSON.parse(localStorage.getItem("user"));
         const userName = userData && userData.name ? userData.name : "PROFILE";
         
-        loginLink.href = "/html/profile.html"; 
+        loginLink.href = "/project-exam-1/html/profile.html"; 
         loginLink.textContent = userName.toUpperCase(); 
 
         if (!document.getElementById("logout-link")) {
@@ -46,7 +46,7 @@ function updateUIBasedOnLoginStatus() {
         }
 
     } else {
-        loginLink.href = "/html/login.html";
+        loginLink.href = "/project-exam-1/html/login.html";
         loginLink.textContent = "LOG IN";
         
         const logoutLink = document.getElementById("logout-link");
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (response.ok) {
                     alert("Konto opprettet! Du kan nå logge inn.");
-                    window.location.href = "html/login.html";
+                    window.location.href = "/project-exam-1/html/login.html";
                 } else {
                     console.error("API Error:", result);
                     alert(result.errors ? result.errors[0].message : "Noe gikk galt under registrering. Sjekk e-postdomene og passordlengde.");
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     updateUIBasedOnLoginStatus();
 
                     alert("Du er logget inn!");
-                    window.location.href = "index.html";
+                    window.location.href = "/project-exam-1/index.html";
                 } else {
                     alert(result.message || "Feil e-post eller passord.");
                 }
